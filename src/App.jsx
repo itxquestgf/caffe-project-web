@@ -1,11 +1,12 @@
-import Logo from "./assets/logo-caffe.png"
+import Logo from "./assets/logo-caffe.png";
 
 export default function App() {
   const palette = {
-    darkBrown: "#6A4E3A", // deep chocolate
-    brown: "#A27B5C", // milk-chocolate
-    lightMilk: "#F5E9E0", // milky cream
-    accent: "#C89A6B", // caramel-like
+    darkBrown: "#322119",  // diganti
+    brown: "#A27B5C",
+    lightMilk: "#F5E9E0",
+    accent: "#C89A6B",
+    textLight: "#F5E9E0"   // font warna terang
   };
 
   const menu = [
@@ -49,12 +50,12 @@ export default function App() {
       items: [
         {
           name: "Matcha Seasalt Latte",
-          desc: "matcha chocolatos, vanilla, sousalt cream",
+          desc: "matcha chocolatos, vanilla, seasalt cream",
           price: 20000,
         },
         {
           name: "Strawberry Matcha Latte",
-          desc: "matcha chocolatos, strawberry purse, milic",
+          desc: "matcha chocolatos, strawberry purse, milk",
           price: 20000,
         },
       ],
@@ -69,13 +70,17 @@ export default function App() {
     },
   ];
 
-
   return (
     <div
       className="min-h-screen p-6 md:p-12"
-      style={{ backgroundColor: palette.darkBrown }}
+      style={{
+        backgroundColor: palette.darkBrown,
+        fontFamily: "Lusitana, serif",
+        color: palette.textLight,   // <— font jadi terang
+      }}
     >
       <div className="max-w-4xl mx-auto">
+
         {/* Header */}
         <header className="flex items-center justify-center mb-8">
           <img
@@ -88,10 +93,21 @@ export default function App() {
         {/* Menu grid */}
         <main className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {menu.map((section) => (
-            <section key={section.section} className="bg-white/80 rounded-2xl p-6 shadow-md">
+            <section
+              key={section.section}
+              className="rounded-2xl p-6 shadow-md border"
+              style={{
+                backgroundColor: "#3c2b1f",
+                borderColor: "#5d4633",
+                color: palette.textLight,
+              }}
+            >
               <h2
-                className="text-xl font-bold mb-4"
-                style={{ color: palette.darkBrown }}
+                className="text-2xl font-bold mb-4"
+                style={{
+                  color: palette.textLight,
+                  fontFamily: "Lusitana, serif",
+                }}
               >
                 {section.section}
               </h2>
@@ -100,31 +116,48 @@ export default function App() {
                 {section.items.map((it) => (
                   <li
                     key={it.name}
-                    className="flex items-start gap-4 p-3 rounded-lg border border-transparent hover:shadow-sm transition"
-                    style={{ backgroundColor: "rgba(250,244,241,0.8)" }}
+                    className="flex items-start gap-4 p-3 rounded-lg border hover:shadow transition"
+                    style={{
+                      backgroundColor: "#493424",
+                      borderColor: "#5d4633",
+                    }}
                   >
+                    {/* Icon */}
                     <div
-                      className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center font-bold text-lg"
-                      style={{ backgroundColor: palette.brown, color: "#3b1f13" }}
+                      className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center font-bold text-xl"
+                      style={{
+                        backgroundColor: palette.brown,
+                        color: "#3b1f13",
+                      }}
                     >
                       {it.name.split(" ")[0][0]}
                     </div>
+
+                    {/* Text */}
                     <div>
-                      <div className="font-semibold" style={{ color: palette.darkBrown }}>
+                      <div
+                        className="font-bold text-lg"
+                        style={{ color: palette.textLight }}
+                      >
                         {it.name}
                       </div>
-                      <div className="text-sm text-[#6b4a3a]">{it.desc}</div>
+                      <div className="text-sm opacity-80 leading-snug">
+                        {it.desc}
+                      </div>
                     </div>
+
+                    {/* Price */}
                     <div className="ml-auto flex items-center">
                       <div
                         className="text-sm font-bold px-2 py-1 rounded-full border"
-                        style={{ borderColor: palette.accent, color: palette.darkBrown }}
+                        style={{
+                          borderColor: palette.accent,
+                          color: palette.textLight,
+                        }}
                       >
                         {Math.floor(it.price / 1000)}k
                       </div>
                     </div>
-
-
                   </li>
                 ))}
               </ul>
@@ -133,8 +166,14 @@ export default function App() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-sm text-[#be957c]">
-          <div>Made with ♥ — Coklat Susu Theme</div>
+        <footer
+          className="mt-8 text-center text-sm opacity-80"
+          style={{
+            color: palette.textLight,
+            fontFamily: "Lusitana",
+          }}
+        >
+          Made with ♥ — Coklat Susu Theme
         </footer>
       </div>
     </div>
