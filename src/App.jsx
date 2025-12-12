@@ -1,4 +1,4 @@
-import Logo from "./assets/logo-caffe.png";
+import Logo from "./assets/logo-caffe.png"
 
 export default function App() {
   const palette = {
@@ -15,14 +15,17 @@ export default function App() {
         {
           name: "Chocolatos Coffee",
           desc: "chocolatos, vanilla, caramel, espresso, milk",
+          price: 20000,
         },
         {
           name: "Raspberry Chocolatte",
           desc: "chocolatos, raspberry, espresso, milk",
+          price: 20000,
         },
         {
           name: "Caramel Chocolatte",
           desc: "chocolatos, caramel sauce, espresso, milk",
+          price: 20000,
         },
       ],
     },
@@ -32,10 +35,12 @@ export default function App() {
         {
           name: "Seasalt Chocolatos",
           desc: "chocolatos, vanila, caramel sauce, milk, homemade seasalt cream",
+          price: 20000,
         },
         {
           name: "Honey Rose Chocolatos",
           desc: "chocolatos, fruit tea, honey, milk",
+          price: 20000,
         },
       ],
     },
@@ -45,27 +50,29 @@ export default function App() {
         {
           name: "Matcha Seasalt Latte",
           desc: "matcha chocolatos, vanilla, sousalt cream",
+          price: 20000,
         },
         {
           name: "Strawberry Matcha Latte",
           desc: "matcha chocolatos, strawberry purse, milic",
+          price: 20000,
         },
       ],
     },
     {
       section: "COFFEE SPECIALTY",
       items: [
-        { name: "Ice/Hot Americano", desc: "espresso, water" },
-        { name: "Ice/Hot Latte", desc: "espresso, milk" },
-        { name: "Ice/Hot Cappuccino", desc: "espresso, milk" },
+        { name: "Ice/Hot Americano", desc: "espresso, water", price: 18000 },
+        { name: "Ice/Hot Latte", desc: "espresso, milk", price: 20000 },
+        { name: "Ice/Hot Cappuccino", desc: "espresso, milk", price: 20000 },
       ],
     },
   ];
 
+
   return (
     <div
       className="min-h-screen p-6 md:p-12"
-      // HANYA background diganti sesuai permintaanmu
       style={{ backgroundColor: palette.darkBrown }}
     >
       <div className="max-w-4xl mx-auto">
@@ -78,13 +85,10 @@ export default function App() {
           />
         </header>
 
-        {/* Menu Grid */}
+        {/* Menu grid */}
         <main className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {menu.map((section) => (
-            <section
-              key={section.section}
-              className="bg-white/80 rounded-2xl p-6 shadow-md"
-            >
+            <section key={section.section} className="bg-white/80 rounded-2xl p-6 shadow-md">
               <h2
                 className="text-xl font-bold mb-4"
                 style={{ color: palette.darkBrown }}
@@ -99,37 +103,28 @@ export default function App() {
                     className="flex items-start gap-4 p-3 rounded-lg border border-transparent hover:shadow-sm transition"
                     style={{ backgroundColor: "rgba(250,244,241,0.8)" }}
                   >
-                    {/* Kotak inisial */}
                     <div
                       className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center font-bold text-lg"
-                      style={{
-                        backgroundColor: palette.brown,
-                        color: "#3b1f13",
-                      }}
+                      style={{ backgroundColor: palette.brown, color: "#3b1f13" }}
                     >
                       {it.name.split(" ")[0][0]}
                     </div>
-
-                    {/* Nama + desc */}
                     <div>
-                      <div
-                        className="font-semibold"
-                        style={{ color: palette.darkBrown }}
-                      >
+                      <div className="font-semibold" style={{ color: palette.darkBrown }}>
                         {it.name}
                       </div>
                       <div className="text-sm text-[#6b4a3a]">{it.desc}</div>
                     </div>
-
-                    {/* Dummy Tag Harga */}
-                    <div className="ml-auto flex items-center gap-2">
+                    <div className="ml-auto flex items-center">
                       <div
-                        className="text-xs px-2 py-1 rounded-full border"
-                        style={{ borderColor: palette.accent }}
+                        className="text-sm font-bold px-2 py-1 rounded-full border"
+                        style={{ borderColor: palette.accent, color: palette.darkBrown }}
                       >
-                        Rp
+                        {Math.floor(it.price / 1000)}k
                       </div>
                     </div>
+
+
                   </li>
                 ))}
               </ul>
@@ -138,8 +133,8 @@ export default function App() {
         </main>
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-sm text-[#d9c2b2]">
-          <div>Made with ♥ — Chocolatos Caffe</div>
+        <footer className="mt-8 text-center text-sm text-[#be957c]">
+          <div>Made with ♥ — Coklat Susu Theme</div>
         </footer>
       </div>
     </div>
