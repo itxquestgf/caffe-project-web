@@ -2,11 +2,11 @@ import Logo from "./assets/logo-caffe.png";
 
 export default function App() {
   const palette = {
-    darkBrown: "#322119",  // diganti
+    darkBrown: "#322119",
     brown: "#A27B5C",
     lightMilk: "#F5E9E0",
     accent: "#C89A6B",
-    textLight: "#F5E9E0"   // font warna terang
+    textLight: "#F5E9E0",
   };
 
   const menu = [
@@ -76,7 +76,7 @@ export default function App() {
       style={{
         backgroundColor: palette.darkBrown,
         fontFamily: "Lusitana, serif",
-        color: palette.textLight,   // <— font jadi terang
+        color: palette.textLight,
       }}
     >
       <div className="max-w-4xl mx-auto">
@@ -116,12 +116,23 @@ export default function App() {
                 {section.items.map((it) => (
                   <li
                     key={it.name}
-                    className="flex items-start gap-4 p-3 rounded-lg border hover:shadow transition"
+                    className="relative flex items-start gap-4 p-3 rounded-lg border hover:shadow transition"
                     style={{
                       backgroundColor: "#493424",
                       borderColor: "#5d4633",
                     }}
                   >
+                    {/* Harga Pojok Kanan Atas */}
+                    <div
+                      className="absolute top-2 right-3 text-base font-bold px-2 py-1 rounded border"
+                      style={{
+                        borderColor: palette.accent,
+                        color: palette.textLight,
+                      }}
+                    >
+                      {it.price.toLocaleString("id-ID")}
+                    </div>
+
                     {/* Icon */}
                     <div
                       className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center font-bold text-xl"
@@ -134,7 +145,7 @@ export default function App() {
                     </div>
 
                     {/* Text */}
-                    <div>
+                    <div className="pr-12">
                       <div
                         className="font-bold text-lg"
                         style={{ color: palette.textLight }}
@@ -146,18 +157,6 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Price */}
-                    <div className="ml-auto flex items-center">
-                      <div
-                        className="text-sm font-bold px-2 py-1 rounded-full border"
-                        style={{
-                          borderColor: palette.accent,
-                          color: palette.textLight,
-                        }}
-                      >
-                        {Math.floor(it.price / 1000)}k
-                      </div>
-                    </div>
                   </li>
                 ))}
               </ul>
@@ -168,13 +167,11 @@ export default function App() {
         {/* Footer */}
         <footer
           className="mt-8 text-center text-sm opacity-80"
-          style={{
-            color: palette.textLight,
-            fontFamily: "Lusitana",
-          }}
+          style={{ color: palette.textLight }}
         >
           Made with ♥ — Coklat Susu Theme
         </footer>
+
       </div>
     </div>
   );
