@@ -1,5 +1,6 @@
 import Logo from "./assets/logo-caffe.png";
 import Bg from "./assets/bg-image.jpeg";
+import LogoMenu from "./assets/logo-menu.png"
 
 export default function App() {
   const palette = {
@@ -145,16 +146,15 @@ export default function App() {
                     </div>
 
                     {/* Icon */}
-                    <div
-                      className="w-12 h-12 flex-shrink-0 rounded-lg flex items-center justify-center font-bold text-xl"
-                      style={{
-                        backgroundColor: palette.brown,
-                        color: "#3b1f13",
-                        fontFamily: "Recoleta Alt, serif",
-                      }}
-                    >
-                      {it.name.split(" ")[0][0]}
+                    {/* Avatar: pakai image logo */}
+                    <div className="w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
+                      <img
+                        src={LogoMenu}
+                        alt="icon"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
+
 
                     {/* Text */}
                     <div className="pr-12">
