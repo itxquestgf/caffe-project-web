@@ -1,6 +1,5 @@
 import Logo from "../assets/logo-caffe.png";
 import Bg from "../assets/bg-image.jpeg";
-import LogoMenu from "../assets/logo-menu.png";
 
 export default function Drink() {
   const palette = {
@@ -60,6 +59,7 @@ export default function Drink() {
     >
       <div className="max-w-4xl mx-auto">
 
+        {/* Header */}
         <header className="flex items-center justify-center mb-8">
           <img src={Logo} className="w-full max-w-md drop-shadow-2xl" />
         </header>
@@ -80,22 +80,20 @@ export default function Drink() {
                 {section.items.map((it) => (
                   <li
                     key={it.name}
-                    className="relative flex gap-4 p-3 rounded-lg border"
+                    className="relative p-4 rounded-lg border"
                     style={{
                       backgroundColor: "rgba(73, 52, 36, 0.75)",
                       borderColor: "#5d4633",
                     }}
                   >
+                    {/* Harga */}
                     <div className="absolute top-2 right-3 text-base font-bold flex items-center gap-1">
                       <span className="text-xs opacity-80">Rp</span>
                       {it.price.toLocaleString("id-ID")}
                     </div>
 
-                    <div className="w-12 h-12 rounded-lg overflow-hidden">
-                      <img src={LogoMenu} className="w-full h-full object-cover" />
-                    </div>
-
-                    <div className="pr-10">
+                    {/* Tanpa ICON */}
+                    <div className="pr-16 leading-relaxed">
                       <div className="font-bold text-lg">{it.name}</div>
                       <div className="text-sm opacity-80">{it.desc}</div>
                     </div>

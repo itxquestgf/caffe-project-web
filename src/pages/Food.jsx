@@ -1,6 +1,5 @@
 import Logo from "../assets/logo-caffe.png";
 import Bg from "../assets/bg-image.jpeg";
-import LogoMenu from "../assets/logo-menu.png";
 
 export default function Food() {
   const palette = {
@@ -22,7 +21,10 @@ export default function Food() {
   return (
     <div
       className="min-h-screen p-6 md:p-12 bg-cover bg-center"
-      style={{ backgroundImage: `url(${Bg})`, fontFamily: "Recoleta Alt, serif" }}
+      style={{
+        backgroundImage: `url(${Bg})`,
+        fontFamily: "Recoleta Alt, serif",
+      }}
     >
       <div className="max-w-5xl mx-auto">
 
@@ -35,17 +37,20 @@ export default function Food() {
         </header>
 
         {/* Title */}
-        <h2 className="text-3xl font-bold mb-6 text-center" style={{ color: palette.textLight }}>
+        <h2
+          className="text-3xl font-bold mb-6 text-center"
+          style={{ color: palette.textLight }}
+        >
           FOOD MENU
         </h2>
 
-        {/* GRID: 2 item per baris */}
+        {/* GRID 2 kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
 
           {foodItems.map((it) => (
             <div
               key={it.name}
-              className="relative flex gap-6 p-6 rounded-2xl border backdrop-blur-sm shadow-lg"
+              className="relative p-6 rounded-2xl border backdrop-blur-sm shadow-lg"
               style={{
                 backgroundColor: "rgba(73,52,36,0.75)",
                 borderColor: "#5d4633",
@@ -58,12 +63,7 @@ export default function Food() {
                 {it.price.toLocaleString("id-ID")}
               </div>
 
-              {/* Avatar */}
-              <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 shadow-md">
-                <img src={LogoMenu} className="w-full h-full object-cover" />
-              </div>
-
-              {/* Text */}
+              {/* Text only (No icon) */}
               <div className="pr-20 leading-relaxed">
                 <div className="font-bold text-xl mb-1">{it.name}</div>
                 <div className="text-sm opacity-80">{it.desc}</div>
