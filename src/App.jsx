@@ -1,4 +1,5 @@
 import Logo from "./assets/logo-caffe.png";
+import Bg from "./assets/bg-image.jpeg";
 
 export default function App() {
   const palette = {
@@ -26,6 +27,11 @@ export default function App() {
         {
           name: "Caramel Chocolatte",
           desc: "chocolatos, caramel sauce, espresso, milk",
+          price: 20000,
+        },
+        {
+          name: "Godzillatos",
+          desc: "chocolatos, caramel sauce, espresso, milk,whipped cream",
           price: 20000,
         },
       ],
@@ -72,10 +78,10 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen p-6 md:p-12"
+      className="min-h-screen p-6 md:p-12 bg-cover bg-center"
       style={{
-        backgroundColor: palette.darkBrown,
-        fontFamily: "Lusitana, serif",
+        backgroundImage: `url(${Bg})`,
+        fontFamily: "Recoleta Alt, serif",
         color: palette.textLight,
       }}
     >
@@ -86,27 +92,29 @@ export default function App() {
           <img
             src={Logo}
             alt="Logo"
-            className="w-full max-w-md object-contain"
+            className="w-full max-w-md object-contain drop-shadow-2xl"
           />
         </header>
 
-        {/* Menu grid */}
+        {/* Menu Grid */}
         <main className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {menu.map((section) => (
             <section
               key={section.section}
-              className="rounded-2xl p-6 shadow-md border"
+              className="rounded-2xl p-6 shadow-md border backdrop-blur-sm"
               style={{
-                backgroundColor: "#3c2b1f",
+                backgroundColor: "rgba(50, 33, 25, 0.70)",
                 borderColor: "#5d4633",
                 color: palette.textLight,
+                fontFamily: "Recoleta Alt, serif",
               }}
             >
+              {/* Section Title */}
               <h2
                 className="text-2xl font-bold mb-4"
                 style={{
                   color: palette.textLight,
-                  fontFamily: "Lusitana, serif",
+                  fontFamily: "Recoleta Alt, serif",
                 }}
               >
                 {section.section}
@@ -118,18 +126,21 @@ export default function App() {
                     key={it.name}
                     className="relative flex items-start gap-4 p-3 rounded-lg border hover:shadow transition"
                     style={{
-                      backgroundColor: "#493424",
+                      backgroundColor: "rgba(73, 52, 36, 0.75)",
                       borderColor: "#5d4633",
+                      fontFamily: "Recoleta Alt, serif",
                     }}
                   >
-                    {/* Harga Pojok Kanan Atas */}
+                    {/* Price — Top Right */}
                     <div
-                      className="absolute top-2 right-3 text-base font-bold px-2 py-1 rounded border"
+                      className="absolute top-2 right-3 text-base font-bold px-2 py-1 flex items-center gap-1"
                       style={{
                         borderColor: palette.accent,
                         color: palette.textLight,
+                        fontFamily: "Recoleta Alt, serif",
                       }}
                     >
+                      <span className="text-xs opacity-80">Rp</span>
                       {it.price.toLocaleString("id-ID")}
                     </div>
 
@@ -139,6 +150,7 @@ export default function App() {
                       style={{
                         backgroundColor: palette.brown,
                         color: "#3b1f13",
+                        fontFamily: "Recoleta Alt, serif",
                       }}
                     >
                       {it.name.split(" ")[0][0]}
@@ -146,32 +158,31 @@ export default function App() {
 
                     {/* Text */}
                     <div className="pr-12">
+
                       <div
                         className="font-bold text-lg"
-                        style={{ color: palette.textLight }}
+                        style={{
+                          color: palette.textLight,
+                          fontFamily: "Recoleta Alt, serif",
+                        }}
                       >
                         {it.name}
                       </div>
-                      <div className="text-sm opacity-80 leading-snug">
+
+                      <div
+                        className="text-sm opacity-80 leading-snug"
+                        style={{ fontFamily: "Recoleta Alt, serif" }}
+                      >
                         {it.desc}
                       </div>
-                    </div>
 
+                    </div>
                   </li>
                 ))}
               </ul>
             </section>
           ))}
         </main>
-
-        {/* Footer */}
-        <footer
-          className="mt-8 text-center text-sm opacity-80"
-          style={{ color: palette.textLight }}
-        >
-          Made with ♥ — Coklat Susu Theme
-        </footer>
-
       </div>
     </div>
   );
