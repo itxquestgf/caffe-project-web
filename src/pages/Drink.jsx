@@ -1,15 +1,8 @@
-import Logo from "../assets/logo-caffe.png";
+import { Link } from "react-router-dom";
 import Bg from "../assets/bg-image.jpeg";
+import Logo from "../assets/logo-caffe.png";
 
 export default function Drink() {
-  const palette = {
-    darkBrown: "#322119",
-    brown: "#A27B5C",
-    lightMilk: "#F5E9E0",
-    accent: "#C89A6B",
-    textLight: "#F5E9E0",
-  };
-
   const menu = [
     {
       section: "COFFEE MOCKTAIL",
@@ -23,11 +16,7 @@ export default function Drink() {
     {
       section: "NON-COFFEE MOCKTAIL",
       items: [
-        {
-          name: "Seasalt Chocolatos",
-          desc: "chocolatos, vanila, caramel sauce, milk, homemade seasalt cream",
-          price: 20000,
-        },
+        { name: "Seasalt Chocolatos", desc: "chocolatos, vanilla, caramel sauce, milk, seasalt cream", price: 20000 },
         { name: "Honey Rose Chocolatos", desc: "chocolatos, fruit tea, honey, milk", price: 20000 },
       ],
     },
@@ -35,32 +24,45 @@ export default function Drink() {
       section: "MATCHA SERIES",
       items: [
         { name: "Matcha Seasalt Latte", desc: "matcha chocolatos, vanilla, seasalt cream", price: 20000 },
-        { name: "Strawberry Matcha Latte", desc: "matcha chocolatos, strawberry purse, milk", price: 20000 },
+        { name: "Strawberry Matcha Latte", desc: "matcha chocolatos, strawberry puree, milk", price: 20000 },
       ],
     },
     {
       section: "COFFEE SPECIALTY",
       items: [
-        { name: "Ice/Hot Americano", desc: "espresso, water", price: 18000 },
-        { name: "Ice/Hot Latte", desc: "espresso, milk", price: 20000 },
-        { name: "Ice/Hot Cappuccino", desc: "espresso, milk", price: 20000 },
+        { name: "Ice / Hot Americano", desc: "espresso, water", price: 18000 },
+        { name: "Ice / Hot Latte", desc: "espresso, milk", price: 20000 },
+        { name: "Ice / Hot Cappuccino", desc: "espresso, milk", price: 20000 },
+      ],
+    },
+    {
+      section: "MINERAL WATER",
+      items: [
+        { name: "Mineral Water", desc: "fresh bottled water", price: 8000 },
       ],
     },
   ];
 
   return (
     <div
-      className="min-h-screen p-6 md:p-12 bg-cover bg-center"
+      className="min-h-screen"
       style={{
+        backgroundColor: "#322119",
         backgroundImage: `url(${Bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center top",
+        backgroundSize: "contain",
         fontFamily: "Recoleta Alt, serif",
-        color: palette.textLight,
+        color: "#F5E9E0",
       }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="p-6 md:p-12 max-w-4xl mx-auto">
+        {/* Back */}
+        <Link to="/" className="inline-block mb-6 text-sm opacity-80">
+          ← Kembali ke Menu Awal
+        </Link>
 
-        {/* Header */}
-        <header className="flex items-center justify-center mb-8">
+        <header className="flex justify-center mb-8">
           <img src={Logo} className="w-full max-w-md drop-shadow-2xl" />
         </header>
 
@@ -68,9 +70,9 @@ export default function Drink() {
           {menu.map((section) => (
             <section
               key={section.section}
-              className="rounded-2xl p-6 shadow-md border backdrop-blur-sm"
+              className="rounded-2xl p-6 border backdrop-blur-sm"
               style={{
-                backgroundColor: "rgba(50, 33, 25, 0.70)",
+                backgroundColor: "rgba(50,33,25,0.7)",
                 borderColor: "#5d4633",
               }}
             >
@@ -82,18 +84,16 @@ export default function Drink() {
                     key={it.name}
                     className="relative p-4 rounded-lg border"
                     style={{
-                      backgroundColor: "rgba(73, 52, 36, 0.75)",
+                      backgroundColor: "rgba(73,52,36,0.75)",
                       borderColor: "#5d4633",
                     }}
                   >
-                    {/* Harga */}
-                    <div className="absolute top-2 right-3 text-base font-bold flex items-center gap-1">
+                    <div className="absolute top-2 right-3 font-bold flex gap-1">
                       <span className="text-xs opacity-80">Rp</span>
                       {it.price.toLocaleString("id-ID")}
                     </div>
 
-                    {/* Tanpa ICON */}
-                    <div className="pr-16 leading-relaxed">
+                    <div className="pr-16">
                       <div className="font-bold text-lg">{it.name}</div>
                       <div className="text-sm opacity-80">{it.desc}</div>
                     </div>

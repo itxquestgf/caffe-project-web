@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo-caffe.png";
 import Bg from "../assets/bg-image.jpeg";
+import Logo from "../assets/logo-caffe.png";
 
 export default function Home() {
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center p-6 bg-cover bg-center"
-      style={{ backgroundImage: `url(${Bg})` }}
+      className="min-h-screen flex flex-col items-center justify-center p-6"
+      style={{
+        backgroundColor: "#322119",
+        backgroundImage: `url(${Bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center top",
+        backgroundSize: "contain",
+        fontFamily: "Recoleta Alt, serif",
+      }}
     >
       <img src={Logo} className="w-full max-w-md mb-10 drop-shadow-2xl" />
 
