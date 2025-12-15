@@ -42,7 +42,7 @@ export default function Drink() {
     {
       section: "MINERAL WATER",
       items: [
-        { name: "Mineral Water", desc: "bottled drinking water", price: 8000 },
+        { name: "Mineral Water", desc: "bottled drinking water", price: 10000 },
       ],
     },
   ];
